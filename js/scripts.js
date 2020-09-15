@@ -83,9 +83,43 @@ var parametros_pesquisa = {
 // Resolução do desafio:
 
 $(function(){
-
-    // Se quiser uma sugestão dos passos a seguir para a resolução, veja mais abaixo.
     
+    function atualizar_orcamento(parametros){
+
+        $('.refresh-loader').show();
+
+        let quantidade = parametros.quantidade;
+        let preco_unit = camisetas[parametros.cor][parametros.gola][parametros.estampa].preco_unit;
+        let foto = "img/" + camisetas[parametros.cor][parametros.gola][parametros.estampa].foto
+
+        let valor_total = quantidade * preco_unit;
+
+        if (parametros.qualidade == 'q190'){
+            valor_total *= 1.12;
+        }
+
+        if (parametros.embalagem == 'unitaria'){
+            valor_total += (quantidade * 0.15);
+        }
+
+        if (quantidade >= 1000){
+            valor_total *= 0.85;
+        }else if (quantidade >= 500){
+            valor_total *= 0.90;
+        }else if (quantidade >= 100){
+            valor_total *= 0.95;
+        }
+
+        console.log(valor_total)
+    }
+    
+    //ao carregar a pagina
+    //verificat local storage
+
+    atualizar_orcamento(parametros_pesquisa)
+
+
+
 });
 
 
