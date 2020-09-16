@@ -116,6 +116,10 @@ $(function(){
 
         $(this).parent().children('div').removeClass('selected')
         $(this).addClass('selected')
+
+        let categoria = $(this).parent().attr('id');
+        parametros_pesquisa[categoria] = $(this).attr('id');
+        atualizar_orcamento(parametros_pesquisa);
     })
     
     //ao carregar a pagina
