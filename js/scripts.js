@@ -120,7 +120,23 @@ $(function(){
         let categoria = $(this).parent().attr('id');
         parametros_pesquisa[categoria] = $(this).attr('id');
         atualizar_orcamento(parametros_pesquisa);
+    });
+
+    $('select').change(function(){
+        
+        let parametro_select = $(this).attr('id');
+        parametros_pesquisa[parametro_select] = $(this).val();
+        atualizar_orcamento(parametros_pesquisa);
+    });
+
+    $('#quantidade').change(function(){
+
+        let parametro_input = $(this).attr('id');
+        parametros_pesquisa[parametro_input] = $(this).val();
+        atualizar_orcamento(parametros_pesquisa);
     })
+
+
     
     //ao carregar a pagina
     //verificat local storage
