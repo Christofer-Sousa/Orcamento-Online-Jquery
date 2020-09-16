@@ -80,8 +80,6 @@ var parametros_pesquisa = {
 
 
 
-// Resolução do desafio:
-
 $(function(){
     
     function atualizar_orcamento(parametros){
@@ -110,8 +108,15 @@ $(function(){
             valor_total *= 0.95;
         }
 
-        console.log(valor_total)
+        $('.refresh-loader').hide();
+
     }
+
+    $('.single-filter div').click(function(){
+
+        $(this).parent().children('div').removeClass('selected')
+        $(this).addClass('selected')
+    })
     
     //ao carregar a pagina
     //verificat local storage
