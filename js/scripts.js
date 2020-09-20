@@ -108,6 +108,31 @@ $(function(){
             valor_total *= 0.95;
         }
 
+        window.setTimeout(function(){
+
+            let id_gola = '#' + parametros.gola;
+            $('#result_gola').html( $(id_gola).html() );
+
+            let id_estampa = "option[value='" + parametros.estampa + "']";
+            $('#result_estampa').html( $(id_estampa).html() );
+
+            let id_qualidade = '#' + parametros.qualidade;
+            $('#result_qualidade').html( $(id_qualidade).html() );
+
+            let id_cor = '#' + parametros.cor;
+            $('#result_cor').html( $(id_cor).html() );
+
+            let id_embalagem = "option[value='" + parametros.embalagem + "']";
+            $('#result_embalagem').html($(id_embalagem).html());
+
+            let id_quantidade = '#' + parametros.quantidade;
+            $('#result_quantidade').html(parametros.quantidade);
+
+            $('#valor-total').html(valor_total.toLocaleString('pt-br', {minimumFractionDigits: 2, maximumFractionDigits: 2}));
+            $('#foto-produto').attr('src',foto);
+
+        }, 1000)
+    
         $('.refresh-loader').hide();
 
     }
